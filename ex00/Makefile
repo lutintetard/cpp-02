@@ -14,12 +14,15 @@ $(PROGRAM): $(COFILES)
 	$(COMP) $(FLAGS) $(C98) $(COFILES) -o $@ -g
 
 %.o:%.cpp
-	$(COMP) $(FLAGS) $(C98) $< -o -c $@ -g
+	$(COMP) $(FLAGS) $(C98) $< -c -o $@ -g
+
+debug:
+	echo $(COFILES)
 
 clean:
 	rm -rf $(COFILES)
 
-fclean:
+fclean: clean
 	rm -rf $(PROGRAM)
 
 re: fclean all
